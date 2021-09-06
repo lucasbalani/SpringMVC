@@ -14,8 +14,9 @@ TECNOLOGIAS UTILIZADAS
 - Heroku
 - Spring Boot
 - HTML5
-- Thymeleaf (Em alternativa do JSP)
+- Thymeleaf (Em alternativa ao JSP)
 - Maven
 - Spring Security
 
+*Coloque os dados do banco em - application.properties*
 
