@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Convidados</title>
+
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+    rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+    rel="stylesheet"/>
+
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+
+<body>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h2>Lista de convidados</h2>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <form th:object="${convidado}" th:action="@{/convidados}" class="form-inline bg-secondary border rounded" method="POST" style="margin: 5px 0">
+            <div class="d-flex justify-content-center">
+                <div class="form-group w-50">
+                    <label for="inputNome">Nome:</label>
+                    <input id="inputNome" th:field="*{Nome}" type="text" class="form-control" placeholder="Nome"/>
+                    <label for="inputAcompanhantes" class="mt-2">Acompanhantes:</label>
+                    <input id="inputAcompanhantes" th:field="*{Acompanhantes}" type="text" class="form-control mt-2" placeholder="Acompanhantes"/>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <div class="form-group">
+                    <button type="submit"class="btn btn-primary">Adicionar</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>ACOMPANHANTES</th>
+              </tr>
+            </thead>            
+            <tbody>
+              <tr th:each="convidado : ${convidados}">
+                <td th:text="${convidado.Id}"></td>
+                <td th:text="${convidado.Nome}"></td>
+                <td th:text="${convidado.Acompanhantes}"></td>
+              </tr>
+            </tbody>
+          </table>
+            
+        </div>
+      </div>
+    </div>
+</body>
+<!--Web Jars jquery-->
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</html>

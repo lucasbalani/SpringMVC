@@ -1,0 +1,11 @@
+body{
+    background-color: rgb(177, 167, 154);
+}
+
+.centralizar{
+    padding: 10px;
+}
+
+::-webkit-scrollbar{
+    width: 20px;
+}
